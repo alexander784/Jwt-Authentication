@@ -1,4 +1,5 @@
 from flask import Flask
+from extensions import db
 
 
 
@@ -8,5 +9,7 @@ def create_app():
 
     ##COnfigure app
     app.config.from_prefixed_env()
+    db.init_app(app)
+
 
     return app
