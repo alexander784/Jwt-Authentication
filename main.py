@@ -1,6 +1,7 @@
 from flask import Flask
 from extensions import db,jwt
 from auth import auth_Bp
+from users import user_bp
 
 
 
@@ -16,7 +17,7 @@ def create_app():
 
     # Register Blueprint
     app.register_blueprint(auth_Bp, url_prefix='/auth')
-    
+    app.register_blueprint(user_bp,url_prefix='/users')
     
   
 
