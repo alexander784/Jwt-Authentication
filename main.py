@@ -24,6 +24,13 @@ def create_app():
     @jwt.exxpired_token_loader
     def expired_token_callback(jwt_header, jwt_data):
         return jsonify ({"message":"Token has expired", "error":"token expired"})
+    
+    @jwt.invalid_token_loader
+    def invalid_token_callback(error):
+        return jsonify({"message":"Signature verification failed", "error":"Invalid_token"})
+    
+
+    
 
     
   
